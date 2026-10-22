@@ -6,12 +6,14 @@ TARGET = СurrencyСonverter
 
 TEMPLATE = app
 
+INCLUDEPATH += src/windows
+
 SOURCES += \
-    main.cpp \
-    mainwindow.cpp
+    src/main.cpp \
+    src/windows/mainwindow.cpp
 
 HEADERS += \
-    mainwindow.h
+    src/windows/mainwindow.h
 
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
