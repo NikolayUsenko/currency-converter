@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     createMenus();
     createToolBar();
     createStatusBar();
+    createCentralWidget();
 }
 
 void MainWindow::createActions()
@@ -68,6 +69,14 @@ void MainWindow::createStatusBar()
     auto *info = new QLabel(tr("Курсы: не загружены"), this);
     statusBar()->addPermanentWidget(info);
     statusBar()->showMessage(tr("Готово"), STATUS_TIMEOUT_MS);
+}
+
+// Заглушка: на КТ-1.4 здесь появится форма конвертации
+void MainWindow::createCentralWidget()
+{
+    auto *placeholder = new QLabel(tr("Здесь будет форма конвертации"), this);
+    placeholder->setAlignment(Qt::AlignCenter);
+    setCentralWidget(placeholder);   // окно становится владельцем виджета
 }
 
 void MainWindow::onNew()
