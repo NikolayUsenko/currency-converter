@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 
 #include <QAction>
+#include <QMenu>
+#include <QMenuBar>
 #include <QMessageBox>
 #include <QStatusBar>
 
@@ -12,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     resize(START_WIDTH, START_HEIGHT);
 
     createActions();
+    createMenus();
 }
 
 void MainWindow::createActions()
@@ -29,6 +32,21 @@ void MainWindow::createActions()
 
     m_aboutAction = new QAction(tr("&О программе"), this);
     connect(m_aboutAction, &QAction::triggered, this, &MainWindow::onAbout);
+}
+
+void MainWindow::createMenus()
+{
+    // menuBar()->addMenu() создаёт меню с родителем menuBar
+    QMenu *fileMenu = menuBar()->addMenu(tr("&Файл"));
+    fileMenu->addAction(m_newAction);
+    fileMenu->addSeparator();
+    fileMenu->addAction(m_quitAction);
+
+    QMenu *ratesMenu = menuBar()->addMenu(tr("&Курсы"));
+    ratesMenu->addAction(m_refreshAction);
+
+    QMenu *helpMenu = menuBar()->addMenu(tr("&Справка"));
+    helpMenu->addAction(m_aboutAction);
 }
 
 void MainWindow::onNew()
