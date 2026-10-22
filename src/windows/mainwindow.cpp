@@ -5,6 +5,7 @@
 #include <QMenuBar>
 #include <QMessageBox>
 #include <QStatusBar>
+#include <QToolBar>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     createActions();
     createMenus();
+    createToolBar();
 }
 
 void MainWindow::createActions()
@@ -47,6 +49,15 @@ void MainWindow::createMenus()
 
     QMenu *helpMenu = menuBar()->addMenu(tr("&Справка"));
     helpMenu->addAction(m_aboutAction);
+}
+
+void MainWindow::createToolBar()
+{
+    // addToolBar() создаёт панель с родителем this
+    QToolBar *toolBar = addToolBar(tr("Основная"));
+    toolBar->setObjectName("MainToolBar");
+    toolBar->addAction(m_newAction);
+    toolBar->addAction(m_refreshAction);
 }
 
 void MainWindow::onNew()
