@@ -2,7 +2,7 @@ QT += widgets
 
 CONFIG += c++17
 
-TARGET = СurrencyСonverter
+TARGET = CurrencyConverter
 
 TEMPLATE = app
 
