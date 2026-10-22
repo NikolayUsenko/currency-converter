@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 
 #include <QAction>
+#include <QLabel>
 #include <QMenu>
 #include <QMenuBar>
 #include <QMessageBox>
@@ -17,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     createActions();
     createMenus();
     createToolBar();
+    createStatusBar();
 }
 
 void MainWindow::createActions()
@@ -58,6 +60,14 @@ void MainWindow::createToolBar()
     toolBar->setObjectName("MainToolBar");
     toolBar->addAction(m_newAction);
     toolBar->addAction(m_refreshAction);
+}
+
+void MainWindow::createStatusBar()
+{
+    // Постоянная надпись справа, временные сообщения показываются слева
+    auto *info = new QLabel(tr("Курсы: не загружены"), this);
+    statusBar()->addPermanentWidget(info);
+    statusBar()->showMessage(tr("Готово"), STATUS_TIMEOUT_MS);
 }
 
 void MainWindow::onNew()
