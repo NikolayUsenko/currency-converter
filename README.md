@@ -9,7 +9,7 @@
 - Компилятор GCC 9+ / MSVC 2019+ / Clang 10+
 
 ## Сборка и запуск
-1. Откройте `currency-converter.pro` в Qt Creator.
+1. Откройте `CurrencyConverter.pro` в Qt Creator.
 2. Выберите комплект (Kit), нажмите «Сборка» → «Запуск» (Ctrl+R).
 
 ## Статус
